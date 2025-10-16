@@ -1,0 +1,142 @@
+<Window x:Class="HernadVed.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Hernád-Véd - Diszpécser Rendszer" 
+        Height="600" 
+        Width="900"
+        WindowStartupLocation="CenterScreen">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Border Grid.Row="0" Background="#2196F3" Padding="15">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                
+                <TextBlock Grid.Column="0"
+                          Text="Hernád-Véd Diszpécser Rendszer" 
+                          FontSize="20" 
+                          FontWeight="Bold" 
+                          Foreground="White"
+                          VerticalAlignment="Center"/>
+                
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                    <StackPanel Margin="0,0,20,0">
+                        <TextBlock x:Name="UserNameTextBlock"
+                                  FontSize="14" 
+                                  Foreground="White"
+                                  HorizontalAlignment="Right"/>
+                        <TextBlock x:Name="UserRoleTextBlock"
+                                  FontSize="12" 
+                                  Foreground="#E3F2FD"
+                                  HorizontalAlignment="Right"/>
+                    </StackPanel>
+                    <Button Content="Kijelentkezés" 
+                           Click="LogoutButton_Click"
+                           Background="#1976D2"
+                           Foreground="White"
+                           Padding="10,5"
+                           BorderThickness="0"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- Main Content -->
+        <Grid Grid.Row="1" Margin="20">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Text="Üdvözöljük a Hernád-Véd rendszerben!" 
+                          FontSize="24" 
+                          FontWeight="SemiBold"
+                          HorizontalAlignment="Center"
+                          Margin="0,0,0,20"/>
+                
+                <TextBlock x:Name="WelcomeMessageTextBlock"
+                          FontSize="16" 
+                          HorizontalAlignment="Center"
+                          TextWrapping="Wrap"
+                          TextAlignment="Center"
+                          MaxWidth="600"/>
+
+                <!-- Admin Panel -->
+                <Border x:Name="AdminPanel" 
+                       Visibility="Collapsed"
+                       BorderThickness="1"
+                       BorderBrush="#2196F3"
+                       Padding="20"
+                       Margin="0,30,0,0"
+                       Background="#E3F2FD">
+                    <StackPanel>
+                        <TextBlock Text="Adminisztrátori Funkciók" 
+                                  FontSize="18" 
+                                  FontWeight="SemiBold"
+                                  Margin="0,0,0,15"/>
+                        
+                        <Button Content="Felhasználók kezelése" 
+                               Margin="0,5"
+                               Padding="15,10"
+                               HorizontalAlignment="Stretch"/>
+                        <Button Content="Rendszer beállítások" 
+                               Margin="0,5"
+                               Padding="15,10"
+                               HorizontalAlignment="Stretch"/>
+                        <Button Content="Riasztások áttekintése" 
+                               Margin="0,5"
+                               Padding="15,10"
+                               HorizontalAlignment="Stretch"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Dispatcher Panel -->
+                <Border x:Name="DispatcherPanel" 
+                       Visibility="Collapsed"
+                       BorderThickness="1"
+                       BorderBrush="#4CAF50"
+                       Padding="20"
+                       Margin="0,30,0,0"
+                       Background="#E8F5E9">
+                    <StackPanel>
+                        <TextBlock Text="Diszpécser Funkciók" 
+                                  FontSize="18" 
+                                  FontWeight="SemiBold"
+                                  Margin="0,0,0,15"/>
+                        
+                        <Button Content="Aktuális riasztások" 
+                               Margin="0,5"
+                               Padding="15,10"
+                               HorizontalAlignment="Stretch"
+                               Background="#4CAF50"/>
+                        <Button Content="Eseménynapló" 
+                               Margin="0,5"
+                               Padding="15,10"
+                               HorizontalAlignment="Stretch"
+                               Background="#4CAF50"/>
+                        <Button Content="Jelentések" 
+                               Margin="0,5"
+                               Padding="15,10"
+                               HorizontalAlignment="Stretch"
+                               Background="#4CAF50"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Grid>
+
+        <!-- Footer -->
+        <Border Grid.Row="2" Background="#F5F5F5" Padding="10" BorderBrush="#E0E0E0" BorderThickness="0,1,0,0">
+            <TextBlock Text="© 2025 Hernád-Véd - Minden jog fenntartva" 
+                      FontSize="12" 
+                      Foreground="#666"
+                      HorizontalAlignment="Center"/>
+        </Border>
+    </Grid>
+</Window>
